@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import List from "./List";
 import "./App.css";
-// import Header from "./Header";
+import Header from "./Header";
 import { Card, Button } from "react-bootstrap";
 
 
@@ -49,18 +49,16 @@ class FilteredList extends Component {
   sortRating = (a,b) => (a.rating > b.rating)? -1 : 1
 
   renderButtons = () => {
-    
-    const buttons = this.props.tags.map(tag => 
-      
+    const buttons = this.props.tags.map(tag =>     
       {return <Button key={tag} onClick={() => this.addFilter(tag)}>{tag}</Button>});
-
     return buttons;
   }
 
   render() {
     return (
       <div>
-        {this.renderButtons()}
+        {/* {this.renderButtons()} */}
+        <Header renderButtons={this.renderButtons}></Header>
         <List items={this.props.items.filter(this.filterItems).sort(this.sortRating)}/>
       </div>
     );

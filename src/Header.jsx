@@ -40,39 +40,14 @@ render() {
         <h1>BucketList</h1>
         <p>Bucket list is a social network to find cool activities around your college.<br/><br/>
         Don't miss out on your friends!</p>
-        
+        <h2>Top Picks</h2>
+        {this.props.renderButtons()}
         {/* drop down item allows choices of sort and filters */}
         <Navbar bg="light" expand="lg">
-        <NavDropdown title={this.props.party} id="dropdown-basic-button">
-          <NavDropdown.Item eventKey="Party" onSelect={this.props.onSelectFilterTypeParty}>
-            Party
-          </NavDropdown.Item>
-          <NavDropdown.Item eventKey="Democrat" onSelect={this.props.onSelectFilterTypeParty}>
-          Democrat
-          </NavDropdown.Item>
-          <NavDropdown.Item eventKey="Republican" onSelect={this.props.onSelectFilterTypeParty}>
-          Republican
-          </NavDropdown.Item>
-        </NavDropdown>
-
-        <NavDropdown title={this.props.vote} id="dropdown-basic-button">
-          <NavDropdown.Item eventKey= "Vote" onSelect={this.props.onSelectFilterTypeVote}>
-            Vote
-          </NavDropdown.Item>
-          <NavDropdown.Item eventKey="Yes" onSelect={this.props.onSelectFilterTypeVote}>
-          Yes
-          </NavDropdown.Item>
-          <NavDropdown.Item eventKey="No" onSelect={this.props.onSelectFilterTypeVote}>
-          No
-          </NavDropdown.Item>
-          <NavDropdown.Item eventKey="Abstained" onSelect={this.props.onSelectFilterTypeVote}>
-          Abstained
-          </NavDropdown.Item>
-        </NavDropdown>
-
-        <Button onClick={this.usStateChange} style={{backgroundColor: this.state.us_state_color}}>Sort by US State (A-Z)</Button>
+        {/* <Button onClick={this.usStateChange} style={{backgroundColor: this.state.us_state_color}}>Sort by US State (A-Z)</Button> */}
         <Button onClick={this.favButton} style={{backgroundColor: this.state.fav_color}}>Favorite List</Button>
         </Navbar>
+        <h2>Top Picks</h2>
 
         </div>
     );
