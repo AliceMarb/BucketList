@@ -14,8 +14,8 @@ class Person extends Component {
 }
 
 changeColor = () => {
-        this.setState({color: this.props.boxClick(this.props.index)})
-    }
+        this.setState({color: this.props.favClick(this.props.index)})
+}
 
   render() {
     return (

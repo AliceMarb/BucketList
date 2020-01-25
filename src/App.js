@@ -14,59 +14,20 @@ const items = [
 ];
 
 const tagsList = ["Nighttime", "Cultural", "Summer", "Anyone", "Free", "Daring", "Drinking", "Food", "Dessert", "All year", "Paid"];
+const myList = [];
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-         <FilteredList items={items} tags={tagsList} />
+         <FilteredList items={items.map(item => {
+           item["fav"] = false
+           return item})} 
+          tags={tagsList}
+          myList={myList} />
       </div>
     );
   }
 }
-
-// We used the functions below to print a csv file
-// in our console to get all the representatives' information.
-
-// import Csv from "./congress_tagss_equality_act.csv";
-// $(document).ready(function() {
-//     $.ajax({
-//         type: "GET",
-//         url: Csv,
-//         dataType: "text",
-//         success: function(data) {
-//             // alert(data);
-//             // console.log("HELLO" + data);
-//             processData(data);}
-//     });
-// });
-
-// var people = []
-
-// function processData(allText) {
-//     let people = []
-//   var allTextLines = allText.split(/\r\n|\n/);
-
-//   for (var i = 1; i< allTextLines.length-1; i++){
-//     var tmp = allTextLines[i].split(',');
-//     var tags = tmp[3];
-//     if (tags === 'Aye'){
-//         tags = 'Yes'
-//     } else if (tags == 'Not Voting'){
-//         tags = 'Abstained'
-//     }
-//     var person = {
-//       us_state: tmp[1],
-//       tags: tags,
-//       party: tmp[5],
-//       name: tmp[4],
-//       img: "https://www.govtrack.us/static/legislator-photos/" + tmp[0] + "-200px.jpeg",
-//       fav: false,
-//     };
-//     people.push(person);
-//     console.log(person);
-//   }
-// }
-
 
 export default App;

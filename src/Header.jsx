@@ -47,7 +47,7 @@ render() {
         {/* <Button onClick={this.usStateChange} style={{backgroundColor: this.state.us_state_color}}>Sort by US State (A-Z)</Button> */}
         <Button onClick={this.favButton} style={{backgroundColor: this.state.fav_color}}>Favorite List</Button>
         </Navbar>
-        <h2>Top Picks</h2>
+        <h2>My BucketList</h2>
 
         </div>
     );
