@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TopPicksList from "./TopPicksList";
+import MyList from "./MyList";
 import "./App.css";
 import Header from "./Header";
 import { Card, Button } from "react-bootstrap";
@@ -55,11 +56,15 @@ class FilteredList extends Component {
   }
 
   favClick = index => {
+    
     if (this.props.items[index].fav === false) {
         this.props.items[index].fav = true
         this.props.items[index].color = "red"
+        // add to myList
+        this.props.addToMyList(this.props.items[index]);
         // returns the color back to the Person card, 
         // to change the button to red
+        console.log(this.props.myList);
         return "red"
     } else {
         // If the fav is true and being changed to false,
@@ -68,15 +73,18 @@ class FilteredList extends Component {
         // we set the state again. This seems redundant, but 
         // actually it causes the filteredlist to rerender
         // and thus remove the unfavorited items.
+        this.props.addToMyList(this.props.items[index]);
         if (this.state.fav){
           // if in favorites, need to re-render.
           this.setState({fav: true})}
         this.props.items[index].fav = false
         // "" is blue because that is the default for Card
         this.props.items[index].color = ""
+        console.log(this.props.myList);
         return ""
 
     }
+    
 }
 
   render() {
@@ -84,15 +92,8 @@ class FilteredList extends Component {
       <div>
         {/* {this.renderButtons()} */}
         <Header renderButtons={this.renderButtons}></Header>
-        <TopPicksList favClick={this.favClick} items={this.props.items.map((item, index) => {
-            item["index"] = index
-            // we didn't want an additional color key initially because fav is 
-            // equivalent and makes it redundant -- if fav is true, color is 
-            // red, otherwise blue.
-            if (item.fav){item["color"] = "red"} else {item["color"] = " "}
-            return item
-            // filters and sorts the items according to the above filtera
-        }).filter(this.filterItems).sort(this.sortRating)}/>
+        <TopPicksList favClick={this.favClick} items={this.props.items.filter(this.filterItems).sort(this.sortRating)}/>
+        
       </div>
     );
   }

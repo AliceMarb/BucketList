@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
 import FilteredList from "./FilteredList";
+import MyList from "./MyList";
+
 
 // This is the list of dictionaries of people who tagsd on the equality act
 // we got this through the code at the bottom, but found it easier and
@@ -16,15 +18,40 @@ const items = [
 const tagsList = ["Nighttime", "Cultural", "Summer", "Anyone", "Free", "Daring", "Drinking", "Food", "Dessert", "All year", "Paid"];
 const myList = [];
 
+
+
+
 class App extends Component {
+  renderButtons = () => {
+    console.log("rendering!")
+    return <MyList items={myList}/>
+  }
+
+  addToMyList = item => {
+    if (myList.includes(item)){
+      // remove if already in -- they want to remove 
+      console.log("includes!");
+      myList = myList.filter(oneItem => oneItem != item);
+      console.log("here's my list" + myList);
+    } else {
+      console.log("doesn't include!");
+      myList.push(item);
+    } 
+    this.renderButtons();
+  }
+  
   render() {
     return (
       <div className="App">
-         <FilteredList items={items.map(item => {
+         <FilteredList items={items.map((item, index) => {
            item["fav"] = false
+           item["index"] = index
+           if (item.fav){item["color"] = "red"} else {item["color"] = " "}
            return item})} 
           tags={tagsList}
-          myList={myList} />
+          myList={myList}
+          addToMyList={this.addToMyList} />
+          <MyList items={myList}/>
       </div>
     );
   }
