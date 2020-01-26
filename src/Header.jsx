@@ -38,6 +38,7 @@ render() {
         <h1>BrownBucket</h1>
         <p>BrownBucket is a social network to find cool activities around Brown University.<br/><br/>
         Don't miss out!</p>
+        <img src="https://media.giphy.com/media/QX7uOSUG8WRpbm1v79/giphy.gif"/>
         <div id="welcome">
           <h3>WELCOME BACK USER!</h3>
         </div>

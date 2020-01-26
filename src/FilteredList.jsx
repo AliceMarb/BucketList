@@ -47,7 +47,7 @@ class FilteredList extends Component {
     let color = colors[tag];
     // 3. Replace the property you're intested in
     if (color == "rgb(224, 111, 130)")
-      {color = "lightblue"}
+      {color = "rgb(98, 189, 219)"}
     else {color = "rgb(224, 111, 130)"}
     // 4. Put it back into our array. N.B. we *are* mutating the array here, but that's why we made a copy first
     colors[tag] = color;
@@ -85,7 +85,7 @@ filterFin= item => {
 
   renderButtons = () => {
     const buttons = this.props.tags.map(tag =>     
-      {return <Button style={{backgroundColor: this.state.colors[tag]? this.state.colors[tag]: "lightblue"}} key={tag} onClick={() => this.addFilter(tag)}>{tag}</Button>});
+      {return <Button style={{backgroundColor: this.state.colors[tag]? this.state.colors[tag]: "rgb(98, 189, 219)"}} key={tag} onClick={() => this.addFilter(tag)}>{tag}</Button>});
     return buttons;
   }
 

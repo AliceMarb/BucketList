@@ -99,7 +99,7 @@ class App extends Component {
            item["fav"] = false
            item["index"] = index
            item["finished"] = false
-           if (item.fav){item["color"] = "red"} else {item["color"] = " "}
+           if (item.fav){item["color"] = "red"} else {item["color"] = "rgb(98, 189, 219"}
            return item})} 
           tags={tagsList}
           myList={myList}
