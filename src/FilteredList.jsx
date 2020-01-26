@@ -17,7 +17,8 @@ class FilteredList extends Component {
       // tags being filtered on
       filters : [],
       // bgColor: {},
-      rerender: ""
+      rerender: "",
+      colors: {}
     };
   }
 
@@ -34,10 +35,27 @@ class FilteredList extends Component {
     
     // Set state
     this.setState({filters});
+    this.changeColor(tag);
     // console.log(tag);
     // console.log(filters);
   };
 
+  changeColor = tag => {
+    // 1. Make a shallow copy of the items
+    let colors = this.state.colors;
+    // 2. Make a shallow copy of the item you want to mutate
+    let color = colors[tag];
+    // 3. Replace the property you're intested in
+    if (color == "red")
+      {color = "blue"}
+    else {color = "red"}
+    // 4. Put it back into our array. N.B. we *are* mutating the array here, but that's why we made a copy first
+    colors[tag] = color;
+    // 5. Set the state to our new copy
+    this.setState({colors});
+    console.log(this.state.colors);
+   
+  }
   filterItems = item => {
     if (this.state.filters.length == 0){
       return true;
@@ -67,7 +85,7 @@ filterFin= item => {
 
   renderButtons = () => {
     const buttons = this.props.tags.map(tag =>     
-      {return <ToggleButton type="checkbox" key={tag} onClick={() => this.addFilter(tag)}>{tag}</ToggleButton>});
+      {return <Button style={{backgroundColor: this.state.colors[tag]}} key={tag} onClick={() => this.addFilter(tag)}>{tag}</Button>});
     return buttons;
   }
 
