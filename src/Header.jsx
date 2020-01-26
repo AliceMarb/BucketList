@@ -35,8 +35,8 @@ class Header extends Component {
 render() {
     return (
         <div className="header">
-        <h1>BrownBucket</h1>
-        <p>BrownBucket is a social network to find cool activities around Brown University.<br/><br/>
+        <h1>BluenoBucket</h1>
+        <p>BluenoBucket is a social network to find cool activities around Brown University.<br/><br/>
         Don't miss out!</p>
         <img src="https://media.giphy.com/media/QX7uOSUG8WRpbm1v79/giphy.gif"/>
         <div id="welcome">
