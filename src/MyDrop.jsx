@@ -3,7 +3,7 @@ import { Card, Button } from "react-bootstrap";
 import "./App.css";
 
 
-class Person extends Component {
+class MyDrop extends Component {
 
     constructor(props) {
       super(props);
@@ -19,7 +19,7 @@ changeColor = () => {
 
   render() {
     return (
-        <div className="person">
+        <div className="MyDrop">
         <Card>
             <Card.Img bsPrefix="custom-img" src={this.props.img} />
             <Card.Body>
@@ -39,4 +39,4 @@ changeColor = () => {
   }
 }
 
-export default Person;
+export default MyDrop;
