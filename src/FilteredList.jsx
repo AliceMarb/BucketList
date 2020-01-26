@@ -16,6 +16,7 @@ class FilteredList extends Component {
     this.state = {
       // tags being filtered on
       filters : [],
+      bgColor: {},
       rerender: ""
     };
   }
@@ -66,7 +67,7 @@ filterFin= item => {
 
   renderButtons = () => {
     const buttons = this.props.tags.map(tag =>     
-      {return <Button key={tag} onClick={() => this.addFilter(tag)}>{tag}</Button>});
+      {return <Button style={{backgroundColor:this.state.bgColor[tag]}} key={tag} onClick={() => this.addFilter(tag)}>{tag}</Button>});
     return buttons;
   }
 

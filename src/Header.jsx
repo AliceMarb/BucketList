@@ -7,6 +7,9 @@ import "./App.css";
 class Header extends Component {
     constructor(props) {
       super(props);
+      // this.state = {
+      //   buttonColor: "#23395d",
+      // };
 }
 
 // // changes the color of the state button on click
