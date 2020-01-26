@@ -15,6 +15,7 @@ class FilteredList extends Component {
     this.state = {
       // tags being filtered on
       filters : [],
+      rerender: ""
     };
   }
 
@@ -47,6 +48,13 @@ class FilteredList extends Component {
     return false;
   }
 
+  filterFav = item => {
+    console.log(item.fav)
+    // this.props.items[0].fav = true
+    
+    return item.fav
+}
+
   sortRating = (a,b) => (a.rating > b.rating)? -1 : 1
 
   renderButtons = () => {
@@ -64,7 +72,9 @@ class FilteredList extends Component {
         this.props.addToMyList(this.props.items[index]);
         // returns the color back to the Person card, 
         // to change the button to red
-        console.log(this.props.myList);
+        console.log(this.props.items[index]);
+        this.setState({rerender:"true"});
+        // this.props.items.map(item => this.filterFav(item))
         return "red"
     } else {
         // If the fav is true and being changed to false,
@@ -74,15 +84,13 @@ class FilteredList extends Component {
         // actually it causes the filteredlist to rerender
         // and thus remove the unfavorited items.
         this.props.addToMyList(this.props.items[index]);
-        if (this.state.fav){
-          // if in favorites, need to re-render.
-          this.setState({fav: true})}
         this.props.items[index].fav = false
         // "" is blue because that is the default for Card
         this.props.items[index].color = ""
-        console.log(this.props.myList);
+        console.log(this.props.items[index]);
+        this.setState({rerender:"true"});
+        // this.props.items.map(item => this.filterFav(item))
         return ""
-
     }
     
 }
@@ -93,7 +101,7 @@ class FilteredList extends Component {
         {/* {this.renderButtons()} */}
         <Header renderButtons={this.renderButtons}></Header>
         <TopPicksList favClick={this.favClick} items={this.props.items.filter(this.filterItems).sort(this.sortRating)}/>
-        
+        <MyList favClick={this.favClick} items={this.props.items.filter(this.filterFav)}/>
       </div>
     );
   }

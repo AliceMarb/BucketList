@@ -16,16 +16,16 @@ const items = [
 ];
 
 const tagsList = ["Nighttime", "Cultural", "Summer", "Anyone", "Free", "Daring", "Drinking", "Food", "Dessert", "All year", "Paid"];
-const myList = [];
+var myList = [];
 
 
 
 
 class App extends Component {
-  renderButtons = () => {
-    console.log("rendering!")
-    return <MyList items={myList}/>
-  }
+  // renderButtons = () => {
+  //   console.log("rendering!")
+  //   return <MyList items={myList}/>
+  // }
 
   addToMyList = item => {
     if (myList.includes(item)){
@@ -37,7 +37,7 @@ class App extends Component {
       console.log("doesn't include!");
       myList.push(item);
     } 
-    this.renderButtons();
+    // this.renderButtons();
   }
   
   render() {
@@ -51,7 +51,7 @@ class App extends Component {
           tags={tagsList}
           myList={myList}
           addToMyList={this.addToMyList} />
-          <MyList items={myList}/>
+          {/* <MyList items={myList}/> */}
       </div>
     );
   }

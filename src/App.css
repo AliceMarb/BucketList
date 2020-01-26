@@ -46,11 +46,24 @@
 
 .header h1 {
     margin: 30px 0;
+    color:gray;
+    background-color:pink;
 }
 
 .header p {
     max-width: 800px;
     margin: 50px auto;
+    color:gray;
+    background-color: lightblue;
+}
+
+.header h2{
+  color:lightblue;
+  background-color:gray;
+}
+
+body{
+  background-color:lightgray;
 }
 
 .navbar, .navbar-default {
