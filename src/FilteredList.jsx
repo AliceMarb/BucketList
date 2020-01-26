@@ -122,6 +122,7 @@ finClick = index => {
       // returns the color back to the Person card, 
       // to change the button to red
       console.log(this.props.items[index]);
+      this.props.items[index].numTried++;
       this.setState({rerender:"true"});
       // this.props.items.map(item => this.filterFav(item))
       return "red"
@@ -130,6 +131,7 @@ finClick = index => {
       // "" is blue because that is the default for Card
       this.props.items[index].color = ""
       console.log(this.props.items[index]);
+      this.props.items[index].numTried--;
       this.setState({rerender:"true"});
       // this.props.items.map(item => this.filterFav(item))
       return ""
