@@ -16,7 +16,7 @@ class MyFinList extends Component {
 
   render() {
     return (
-        <div className="Drop_list">
+        <div className="Drop_list" class="finished">
         <h1>My Finished List</h1>
         {this.renderList()}
         </div>

@@ -16,7 +16,7 @@ class MyList extends Component {
 
   render() {
     return (
-        <div className="Drop_list">
+        <div className="Drop_list" class="bucketList">
         <h1>My Bucket List</h1>
         {this.renderList()}
         </div>

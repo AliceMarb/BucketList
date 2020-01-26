@@ -35,10 +35,14 @@ class Header extends Component {
 render() {
     return (
         <div className="header">
-        <h1>BucketList</h1>
-        <p>Bucket list is a social network to find cool activities around your college.<br/><br/>
-        Don't miss out on your friends!</p>
+        <h1>BrownBucket</h1>
+        <p>BrownBucket is a social network to find cool activities around Brown University.<br/><br/>
+        Don't miss out!</p>
+        <div id="welcome">
+          <h3>WELCOME BACK USER!</h3>
+        </div>
         <h2>Top Picks</h2>
+        <h3>Filter by:</h3>
         {this.props.renderButtons()}
         {/* drop down item allows choices of sort and filters */}
         <Navbar bg="light" expand="lg">

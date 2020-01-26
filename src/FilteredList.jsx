@@ -46,9 +46,9 @@ class FilteredList extends Component {
     // 2. Make a shallow copy of the item you want to mutate
     let color = colors[tag];
     // 3. Replace the property you're intested in
-    if (color == "red")
-      {color = "blue"}
-    else {color = "red"}
+    if (color == "rgb(224, 111, 130)")
+      {color = "lightblue"}
+    else {color = "rgb(224, 111, 130)"}
     // 4. Put it back into our array. N.B. we *are* mutating the array here, but that's why we made a copy first
     colors[tag] = color;
     // 5. Set the state to our new copy
@@ -85,7 +85,7 @@ filterFin= item => {
 
   renderButtons = () => {
     const buttons = this.props.tags.map(tag =>     
-      {return <Button style={{backgroundColor: this.state.colors[tag]}} key={tag} onClick={() => this.addFilter(tag)}>{tag}</Button>});
+      {return <Button style={{backgroundColor: this.state.colors[tag]? this.state.colors[tag]: "lightblue"}} key={tag} onClick={() => this.addFilter(tag)}>{tag}</Button>});
     return buttons;
   }
 
@@ -93,14 +93,14 @@ filterFin= item => {
     
     if (this.props.items[index].fav === false) {
         this.props.items[index].fav = true
-        this.props.items[index].color = "red"
+        this.props.items[index].color = "rgb(224, 111, 130)"
         // add to myList
         // returns the color back to the Person card, 
         // to change the button to red
         // console.log(this.props.items[index]);
         this.setState({rerender:"true"});
         // this.props.items.map(item => this.filterFav(item))
-        return "red"
+        return "rgb(224, 111, 130)"
     } else {
         this.props.items[index].fav = false
         // "" is blue because that is the default for Card
@@ -117,7 +117,7 @@ finClick = index => {
   console.log("fin clicked!")
   if (this.props.items[index].finished === false) {
       this.props.items[index].finished = true
-      this.props.items[index].color = "red"
+      this.props.items[index].color = "rgb(224, 111, 130)"
       // add to myList
       // returns the color back to the Person card, 
       // to change the button to red
@@ -125,7 +125,7 @@ finClick = index => {
       this.props.items[index].numTried++;
       this.setState({rerender:"true"});
       // this.props.items.map(item => this.filterFav(item))
-      return "red"
+      return "rgb(224, 111, 130)"
   } else {
       this.props.items[index].finished = false
       // "" is blue because that is the default for Card

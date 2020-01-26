@@ -60,6 +60,8 @@
 .header h2{
   color:lightblue;
   background-color:gray;
+  text-transform: uppercase;
+  text-align: left;
 }
 
 body{
@@ -94,4 +96,23 @@ body{
   box-sizing: border-box;
 }
 
+#welcome{
+  text-align: left;
+  font-size: 30px;
+  color: pink;
+  -webkit-text-stroke: 0.2px gray;
+}
 
+.bucketList{
+  color:gray;
+  background-color:pink;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.finished{
+  color:rgb(224, 111, 130);
+  background-color:lightblue;
+  text-transform: uppercase;
+  text-align: left;
+}
