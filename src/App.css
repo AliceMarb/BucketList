@@ -106,13 +106,13 @@ body{
 .bucketList{
   color:gray;
   background-color:pink;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   text-align: left;
 }
 
 .finished{
   color:rgb(224, 111, 130);
   background-color:lightblue;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   text-align: left;
 }
