@@ -21,13 +21,13 @@
   color: #09d3ac;
 }
 
-.person_list {
+.Drop_list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.person {
+.Drop {
     margin: 50px 50px;
 }
 

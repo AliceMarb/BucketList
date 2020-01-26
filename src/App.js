@@ -46,6 +46,7 @@ class App extends Component {
          <FilteredList items={items.map((item, index) => {
            item["fav"] = false
            item["index"] = index
+           item["finished"] = false
            if (item.fav){item["color"] = "red"} else {item["color"] = " "}
            return item})} 
           tags={tagsList}

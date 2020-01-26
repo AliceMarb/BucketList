@@ -32,6 +32,7 @@ changeColor = () => {
               Number of people Who've Tried: {this.props.numTried}
             </Card.Text>
             <Button onClick={this.changeColor} style={{backgroundColor: this.state.color}}>Favorite</Button>
+            <Button onClick={() => this.props.finClick(this.props.index)} style={{backgroundColor: this.state.color}}>Finished!</Button>
             </Card.Body>
         </Card>
         </div>

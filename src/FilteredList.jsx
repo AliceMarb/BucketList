@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TopPicksList from "./TopPicksList";
 import MyList from "./MyList";
+import MyFinList from "./MyFinList";
 import "./App.css";
 import Header from "./Header";
 import { Card, Button } from "react-bootstrap";
@@ -32,8 +33,8 @@ class FilteredList extends Component {
     
     // Set state
     this.setState({filters});
-    console.log(tag);
-    console.log(filters);
+    // console.log(tag);
+    // console.log(filters);
   };
 
   filterItems = item => {
@@ -49,10 +50,16 @@ class FilteredList extends Component {
   }
 
   filterFav = item => {
-    console.log(item.fav)
+    // console.log(item.fav)
     // this.props.items[0].fav = true
     
-    return item.fav
+    return item.fav && !item.finished
+}
+
+filterFin= item => {
+  console.log(item.finished)
+  // this.props.items[0].fav = true 
+  return item.fav && item.finished
 }
 
   sortRating = (a,b) => (a.rating > b.rating)? -1 : 1
@@ -69,30 +76,46 @@ class FilteredList extends Component {
         this.props.items[index].fav = true
         this.props.items[index].color = "red"
         // add to myList
-        this.props.addToMyList(this.props.items[index]);
         // returns the color back to the Person card, 
         // to change the button to red
-        console.log(this.props.items[index]);
+        // console.log(this.props.items[index]);
         this.setState({rerender:"true"});
         // this.props.items.map(item => this.filterFav(item))
         return "red"
     } else {
-        // If the fav is true and being changed to false,
-        // we need to immediately remove it from the favorites 
-        // list. So if in favorite filter,
-        // we set the state again. This seems redundant, but 
-        // actually it causes the filteredlist to rerender
-        // and thus remove the unfavorited items.
-        this.props.addToMyList(this.props.items[index]);
         this.props.items[index].fav = false
         // "" is blue because that is the default for Card
         this.props.items[index].color = ""
-        console.log(this.props.items[index]);
+        // console.log(this.props.items[index]);
         this.setState({rerender:"true"});
         // this.props.items.map(item => this.filterFav(item))
         return ""
     }
     
+}
+
+finClick = index => {
+  console.log("fin clicked!")
+  if (this.props.items[index].finished === false) {
+      this.props.items[index].finished = true
+      this.props.items[index].color = "red"
+      // add to myList
+      // returns the color back to the Person card, 
+      // to change the button to red
+      console.log(this.props.items[index]);
+      this.setState({rerender:"true"});
+      // this.props.items.map(item => this.filterFav(item))
+      return "red"
+  } else {
+      this.props.items[index].finished = false
+      // "" is blue because that is the default for Card
+      this.props.items[index].color = ""
+      console.log(this.props.items[index]);
+      this.setState({rerender:"true"});
+      // this.props.items.map(item => this.filterFav(item))
+      return ""
+  }
+  
 }
 
   render() {
@@ -101,7 +124,8 @@ class FilteredList extends Component {
         {/* {this.renderButtons()} */}
         <Header renderButtons={this.renderButtons}></Header>
         <TopPicksList favClick={this.favClick} items={this.props.items.filter(this.filterItems).sort(this.sortRating)}/>
-        <MyList favClick={this.favClick} items={this.props.items.filter(this.filterFav)}/>
+        <MyList finClick={this.finClick} favClick={this.favClick} items={this.props.items.filter(this.filterFav)}/>
+        <MyFinList finClick={this.finClick} favClick={this.favClick} items={this.props.items.filter(this.filterFin)}/>
       </div>
     );
   }
