@@ -4,7 +4,7 @@ import MyList from "./MyList";
 import MyFinList from "./MyFinList";
 import "./App.css";
 import Header from "./Header";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, ToggleButton } from "react-bootstrap";
 
 
 // Filtered list is the component that defines which people appear
@@ -16,7 +16,7 @@ class FilteredList extends Component {
     this.state = {
       // tags being filtered on
       filters : [],
-      bgColor: {},
+      // bgColor: {},
       rerender: ""
     };
   }
@@ -67,7 +67,7 @@ filterFin= item => {
 
   renderButtons = () => {
     const buttons = this.props.tags.map(tag =>     
-      {return <Button style={{backgroundColor:this.state.bgColor[tag]}} key={tag} onClick={() => this.addFilter(tag)}>{tag}</Button>});
+      {return <ToggleButton type="checkbox" key={tag} onClick={() => this.addFilter(tag)}>{tag}</ToggleButton>});
     return buttons;
   }
 
